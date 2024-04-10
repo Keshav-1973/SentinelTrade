@@ -1,0 +1,23 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-native",
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "outDir": "./build",
+    "paths": {
+      "tests": ["tests/*"],
+      "@components/*": ["src/components/*"],
+      "@config/*": ["src/config/*"],
+      "@constants/*": ["src/constants/*"],
+      "@utils/*": ["src/utils/*"],
+      "@navigations": ["src/navigations"],
+      "@navigations/*": ["src/navigations/*"],
+      "@screens/*": ["src/screens/*"],
+      "@themes/*": ["src/themes/*"],
+      "@svgFiles": ["src/custom.d.ts"],
+      "@assets/*": ["src/assets/*"],
+      "@hooks/*": ["src/hooks/*"]
+    }
+  }
+}
