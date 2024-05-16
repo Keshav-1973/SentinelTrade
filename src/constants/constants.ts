@@ -4,6 +4,14 @@ export enum ThemeTypes {
   DARK = 'dark',
 }
 
+export enum AppStateStatus {
+  Active = 'active',
+  Background = 'background',
+  Inactive = 'inactive',
+  Unknown = 'unknown',
+  Extension = 'extension',
+}
+
 export const TOAST_TYPE = {
   SUCCESS: 'success',
   ERROR: 'error',

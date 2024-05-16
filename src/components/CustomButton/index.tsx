@@ -7,7 +7,7 @@ import {useTheme} from '@shopify/restyle';
 import {ThemeType} from '@themes/Themes';
 import ViewComponent from '@components/ViewComponent/ViewComponent';
 import TextComponent from '@components/TextComponent/TextComponent';
-import {SemanticColors} from '@themes/Scales';
+import {SemanticColors, TextVariants} from '@themes/Scales';
 
 const options = {
   enableVibrateFallback: true,
@@ -27,9 +27,9 @@ const CustomButton = ({
   loading = false,
 }: Props) => {
   const theme = useTheme<ThemeType>();
-  const {mainBackground, mainForeground} = theme.colors;
+  const {secondaryButtonText, primaryButtonText} = theme.colors;
   const activityIndicatorColor =
-    btnType === BtnTypes.PRIMARY ? mainForeground : mainBackground;
+    btnType === BtnTypes.PRIMARY ? secondaryButtonText : primaryButtonText;
 
   const withHapticFeedback = useCallback(() => {
     trigger('soft', options);
@@ -78,16 +78,15 @@ const CustomButton = ({
           }}>
           {logo && logo}
         </ViewComponent>
-        {
-          <TextComponent
-            variant={
-              btnType === BtnTypes.PRIMARY
-                ? 'primaryButtonText'
-                : 'secondaryButtonText'
-            }>
-            {loading ? loadingTitle : title}
-          </TextComponent>
-        }
+
+        <TextComponent
+          variant={
+            btnType === BtnTypes.PRIMARY
+              ? TextVariants.PrimaryBtnText
+              : TextVariants.SecondaryButtonText
+          }>
+          {loading ? loadingTitle || title : title}
+        </TextComponent>
       </ViewComponent>
     </ViewWrapper>
   );

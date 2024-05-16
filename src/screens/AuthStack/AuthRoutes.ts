@@ -5,9 +5,14 @@ export const AuthRoutes = {
   LANDING: '/auth/landing',
   LOGIN: '/auth/login',
   SIGN_UP: '/auth/signUp',
+  FORGOT_PASSOWRD: '/auth/forgotPassword',
   FIND_USER: '/auth/findUser',
   VERIFY_EMAIL: '/auth/verifyEmail',
-  PIN_ENTRY: '/auth/pinEntry',
+  PROTECT_WALLET: '/auth/protectWallet',
+  BIOMETRICS: '/auth/biometrics',
+  PIN: '/auth/pin',
+  CHECK_EMAIL: '/auth/checkEmail',
+  CREATE_PASSOWRD: '/auth/createPassword',
 } as const;
 
 export const AuthScreensMetadata: RouteMetadata<ValueOf<typeof AuthRoutes>> = {
@@ -26,8 +31,23 @@ export const AuthScreensMetadata: RouteMetadata<ValueOf<typeof AuthRoutes>> = {
   [AuthRoutes.VERIFY_EMAIL]: {
     name: 'Verify Email',
   },
-  [AuthRoutes.PIN_ENTRY]: {
-    name: 'Pin Entry',
+  [AuthRoutes.PROTECT_WALLET]: {
+    name: 'ProtectWallet',
+  },
+  [AuthRoutes.BIOMETRICS]: {
+    name: 'Biometrics',
+  },
+  [AuthRoutes.PIN]: {
+    name: 'Pin',
+  },
+  [AuthRoutes.FORGOT_PASSOWRD]: {
+    name: 'Forgot Password',
+  },
+  [AuthRoutes.CHECK_EMAIL]: {
+    name: 'Check Email',
+  },
+  [AuthRoutes.CREATE_PASSOWRD]: {
+    name: 'Create Password',
   },
 };
 
@@ -58,7 +78,12 @@ export type AuthScreenPropsType = {
         oobCode?: string;
       }
     | undefined;
-  [AuthRoutes.PIN_ENTRY]: {payload: string} | undefined;
+  [AuthRoutes.PROTECT_WALLET]: {payload: string} | undefined;
+  [AuthRoutes.BIOMETRICS]: {payload: string} | undefined;
+  [AuthRoutes.PIN]: {payload: string} | undefined;
+  [AuthRoutes.FORGOT_PASSOWRD]: {payload: string} | undefined;
+  [AuthRoutes.CHECK_EMAIL]: {payload: string} | undefined;
+  [AuthRoutes.CREATE_PASSOWRD]: {payload: string} | undefined;
 };
 
 export type OnboardingScreenProps<t extends ValueOf<typeof AuthRoutes>> =

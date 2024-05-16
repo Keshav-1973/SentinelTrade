@@ -7,7 +7,7 @@ import {useTheme} from '@shopify/restyle';
 import {ThemeType} from '@themes/Themes';
 
 const PasswordInput = (props: InputFieldProps) => {
-  const {onChange, onBlur, value, error} = props;
+  const {onChange, onBlur, value, error, placeholder} = props;
   const {toggleValue, toggle} = useToggle(true);
   const theme = useTheme<ThemeType>();
 
@@ -29,7 +29,7 @@ const PasswordInput = (props: InputFieldProps) => {
 
   return (
     <InputField
-      placeholder="Password"
+      placeholder={placeholder || 'Password'}
       onChange={onChange}
       onBlur={onBlur}
       value={value}

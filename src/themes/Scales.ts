@@ -41,6 +41,8 @@ export enum TextVariants {
   BannerDescription = 'bannerDescription',
   LinkText = 'linkText',
   AppHeader = 'appHeader',
+  PrimaryBtnText = 'primaryButtonText',
+  SecondaryButtonText = 'secondaryButtonText',
 }
 
 export enum SupportedDevices {

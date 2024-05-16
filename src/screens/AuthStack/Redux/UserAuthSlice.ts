@@ -6,7 +6,6 @@ import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 //   SUCCESS_TOAST,
 //   ERROR_TOAST,
 // } from '@components/Common/ToastManager/InAppToastManager';
-import {User} from '@react-native-google-signin/google-signin';
 import {
   RegisterFormData,
   FindUserFormData,
@@ -14,13 +13,13 @@ import {
 // import {mapAuthCodeToMessage} from '@helpers/CommonFunctions/CommonFunctions';
 
 interface InitialUserAuthState {
-  googleUserState: User;
+  googleUserState: {};
   isLoggedIn: boolean;
   isOnboarded: boolean;
 }
 
 const initialUserAuthState: InitialUserAuthState = {
-  googleUserState: {} as User,
+  googleUserState: {},
   isLoggedIn: false,
   isOnboarded: false,
 };
@@ -37,7 +36,7 @@ export const UserAuthSlice = createSlice({
   name: 'userAuth',
   initialState: initialUserAuthState,
   reducers: {
-    logIn: (state, action: PayloadAction<User>) => {
+    logIn: (state, action: PayloadAction<any>) => {
       state.googleUserState = action.payload;
       state.isLoggedIn = true;
     },

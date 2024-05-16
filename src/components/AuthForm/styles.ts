@@ -12,6 +12,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   childWrapper: {
-    flex: 1,
+    // flex: 1,
+    paddingHorizontal: 16,
   },
 });
