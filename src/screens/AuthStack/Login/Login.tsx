@@ -1,26 +1,27 @@
-import React from 'react';
-import ViewComponent from '@components/ViewComponent/ViewComponent';
 import AuthSVG from '@assets/svgs/auth.svg';
-import {useWindowDimensions} from 'react-native';
-import {Spacings, TextVariants} from '@themes/Scales';
-import InputField from '@components/InputField/InputField';
-import {BtnTypes} from '@components/CustomButton/types';
-import CustomButton from '@components/CustomButton';
-import {useForm, Controller} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
-import {LoginInfo, LoginSchema} from './utils';
-import PasswordInput from '@components/PasswordInput/PasswordInput';
-import LinkText from '@components/LinkText/LinkText';
-import TextComponent from '@components/TextComponent/TextComponent';
-import styles from './styles';
 import AuthForm from '@components/AuthForm/AuthForm';
-import {CustomStyle} from '@components/AuthForm/Ohh';
+import CustomButton from '@components/CustomButton';
+import {BtnTypes} from '@components/CustomButton/types';
+import InputField from '@components/InputField/InputField';
+import LinkText from '@components/LinkText/LinkText';
+import PasswordInput from '@components/PasswordInput/PasswordInput';
+import TextComponent from '@components/TextComponent/TextComponent';
+import ViewComponent from '@components/ViewComponent/ViewComponent';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {FeatureRoutes} from '@navigations/ScreenTypes';
+import {useNavigation} from '@react-navigation/native';
+import {Spacings, TextVariants} from '@themes/Scales';
+import React from 'react';
+import {Controller, useForm} from 'react-hook-form';
+import {useWindowDimensions} from 'react-native';
+import styles from './styles';
+import {LoginInfo, LoginSchema} from './utils';
+import auth, {FirebaseAuthTypes, firebase} from '@react-native-firebase/auth';
 
 const Login = () => {
-  const {width, height} = useWindowDimensions();
-  const Available_Height = height - 55;
-  const Banner_Height = Available_Height * 0.4;
-
+  const provider = new firebase.auth.OAuthProvider('google.com');
+  const {height} = useWindowDimensions();
+  const navigation = useNavigation();
   const {
     control,
     handleSubmit,
@@ -33,14 +34,29 @@ const Login = () => {
     resolver: yupResolver(LoginSchema),
   });
 
-  const onSubmit = (data: LoginInfo) => {
-    console.log(data, '..........');
+  const onSubmit = async () => {
+    const hehe = await auth().signInWithPopup(provider);
+
+    console.log(hehe);
   };
+
+  const onSignUp = () => {
+    navigation.navigate(FeatureRoutes.ONBOARDING.SIGN_UP);
+  };
+
+  const onForgotPass = () => {
+    navigation.navigate(FeatureRoutes.ONBOARDING.CREATE_PASSOWRD);
+  };
+
+  const Available_Height = height - 55;
+  const Banner_Height = Available_Height * 0.4;
 
   return (
     <AuthForm
-      image={<AuthSVG width={width} height={Banner_Height} />}
-      canGoBack={false}>
+      image={<AuthSVG />}
+      canGoBack={false}
+      navHeading={'Login'}
+      bannerHeight={Banner_Height}>
       <>
         <ViewComponent style={[styles.childWrapper]}>
           <Controller
@@ -78,15 +94,15 @@ const Login = () => {
             />
             <LinkText
               text={'Forgot Passord?'}
-              onPress={() => {}}
+              onPress={onForgotPass}
               styles={styles.forgotP}
               variant={TextVariants.H5}
             />
           </ViewComponent>
         </ViewComponent>
-        <ViewComponent marginBottom={Spacings.S}>
+        <ViewComponent marginBottom={Spacings.L}>
           <CustomButton
-            onPress={handleSubmit(onSubmit)}
+            onPress={onSubmit}
             title={'Login'}
             btnType={BtnTypes.PRIMARY}
           />
@@ -97,7 +113,7 @@ const Login = () => {
             <LinkText
               variant={TextVariants.H5}
               text={'Sign Up'}
-              onPress={() => {}}
+              onPress={onSignUp}
             />
           </ViewComponent>
         </ViewComponent>

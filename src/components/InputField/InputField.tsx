@@ -9,6 +9,7 @@ import ViewComponent from '@components/ViewComponent/ViewComponent';
 import TextComponent from '@components/TextComponent/TextComponent';
 import {InputFieldProps} from './types';
 import {SemanticColors} from '@themes/Scales';
+import {BottomSheetTextInput} from '@gorhom/bottom-sheet';
 
 const InputField: FC<InputFieldProps> = ({
   value,
@@ -61,7 +62,7 @@ const InputField: FC<InputFieldProps> = ({
             <ViewComponent>{icon}</ViewComponent>
           </ViewComponent>
         )}
-        <TextInput
+        <BottomSheetTextInput
           style={[
             styles.textInput,
             style,

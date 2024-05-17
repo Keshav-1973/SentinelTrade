@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "440513517062",
+    "project_id": "sentineltrade-a6353",
+    "storage_bucket": "sentineltrade-a6353.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440513517062:android:5f7a695e96afc7d781d587",
+        "android_client_info": {
+          "package_name": "com.sentineltrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440513517062-nolkgapu82lvsi9r5u322ncr988n4r48.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sentineltrade",
+            "certificate_hash": "78565a25b23fdacb0abe1c9113c53478f145f872"
+          }
+        },
+        {
+          "client_id": "440513517062-86gnqht335tb09aibb5q1ners1s04pe9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjpGAkG4aPRr6yWX2U0CHtQPN3dA70amk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440513517062-86gnqht335tb09aibb5q1ners1s04pe9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

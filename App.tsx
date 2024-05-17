@@ -16,6 +16,7 @@ import Toast, {
   ToastType,
 } from 'react-native-toast-message';
 import {ToastConfigTypes} from '@components/ToastMessage/types';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 function App(): React.JSX.Element {
   const currentTheme = useColorScheme();
@@ -54,7 +55,9 @@ function App(): React.JSX.Element {
     <ThemeProvider theme={applyTheme}>
       <Provider store={appStore}>
         <PersistGate loading={null} persistor={persistor}>
-          <MainNavigator />
+          <GestureHandlerRootView style={{flex: 1}}>
+            <MainNavigator />
+          </GestureHandlerRootView>
           <Toast config={toastConfig} />
         </PersistGate>
       </Provider>

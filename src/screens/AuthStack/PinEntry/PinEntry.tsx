@@ -6,7 +6,6 @@ import styles from './styles';
 import {SemanticColors} from '@themes/Scales';
 
 const PinEntry = () => {
-  const pinLength = 4;
   return (
     <Wrapper navHeading={'Create a PIN'} canGoBack={true}>
       <ViewComponent

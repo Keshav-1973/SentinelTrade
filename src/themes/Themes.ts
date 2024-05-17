@@ -41,6 +41,7 @@ const theme = createTheme({
     heading: PALLETE.PRIMARY_BLUE,
     inputField: PALLETE.INPUT_LIGHT,
     subscript: PALLETE.PRIMARY_BLUE,
+    inputPrimary: PALLETE.PRIMARY_BLUE,
   },
   spacing: {
     xs: 5,
@@ -118,7 +119,26 @@ const theme = createTheme({
       fontSize: 16,
       lineHeight: 24,
     },
-    appHeader: {},
+    bannerText: {
+      color: 'primaryText',
+      fontSize: 36,
+      fontFamily: LexendVariants.SemiBold,
+    },
+    bannerDescription: {
+      color: 'secondaryText',
+      fontSize: 15,
+      fontFamily: LexendVariants.Regular,
+    },
+    linkText: {
+      color: 'primaryButton',
+      fontSize: 19,
+      fontFamily: LexendVariants.Regular,
+    },
+    appHeader: {
+      color: 'primaryText',
+      fontSize: 18,
+      fontFamily: LexendVariants.ExtraBold,
+    },
     defaults: {
       // We can define a default text variant here.
     },
@@ -160,13 +180,13 @@ export const darkTheme = {
     mainBackground: DARK_PALLETE_NEW.BLACK,
     mainForeground: DARK_PALLETE_NEW.DARK_GRAY,
     primaryButton: DARK_PALLETE_NEW.PRIMARY_BLUE,
-    secondaryButton: DARK_PALLETE.WHITE,
+    secondaryButton: DARK_PALLETE.BLACK,
     error: DARK_PALLETE_NEW.RED,
     activeTabBackground: DARK_PALLETE.ACTIVE_BLACK,
     primaryText: DARK_PALLETE_NEW.WHITE,
     secondaryText: DARK_PALLETE_NEW.LIGHT_GRAY,
     primaryButtonText: DARK_PALLETE.WHITE,
-    secondaryButtonText: DARK_PALLETE.PRIMARY_BLUE,
+    secondaryButtonText: DARK_PALLETE.WHITE,
     green: DARK_PALLETE_NEW.GREEN,
     heading: DARK_PALLETE.PRIMARY_BLUE,
     inputPrimary: DARK_PALLETE_NEW.INPUT_PRIMARY,

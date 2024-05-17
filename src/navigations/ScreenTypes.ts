@@ -32,3 +32,9 @@ export type ScreenProps<t extends ValueOf<typeof allScreenRoutes>> =
     CombinedScreenProps,
     ValueOf<typeof allScreenRoutes>
   >;
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends CombinedScreenProps {}
+  }
+}
